@@ -1,6 +1,6 @@
 package org.gorthaursource.hotel.persistence.dao.jpa;
 
-import com.frankmoley.lil.learningspring.data.entity.Room;
+import org.gorthaursource.hotel.persistence.model.Room;
 import org.springframework.stereotype.Repository;
 
 @Repository

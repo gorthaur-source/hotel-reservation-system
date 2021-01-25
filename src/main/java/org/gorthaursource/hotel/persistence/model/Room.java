@@ -2,10 +2,7 @@ package org.gorthaursource.hotel.persistence.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +16,10 @@ public class Room extends AbstractModel {
     private String roomNumber;
     @Column(name = "BED_INFO")
     private String bedInfo;
-    @OneToMany(mappedBy = "guest")
+    @OneToMany(
+            mappedBy = "guest",
+            cascade = {CascadeType.ALL}
+    )
     @JsonIgnore
     private List<Reservation> guests = new ArrayList<>();
 

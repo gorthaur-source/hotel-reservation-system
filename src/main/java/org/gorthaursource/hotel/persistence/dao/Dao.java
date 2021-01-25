@@ -2,6 +2,8 @@ package org.gorthaursource.hotel.persistence.dao;
 
 
 import org.gorthaursource.hotel.persistence.model.Model;
+import org.gorthaursource.hotel.persistence.model.Reservation;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Date;
 import java.util.List;
@@ -9,7 +11,7 @@ import java.util.List;
 
 public interface Dao<T extends Model> {
 
-    List<T> findByDate(Date date);
+
     List<T> findAll();
 
     /**
@@ -19,6 +21,7 @@ public interface Dao<T extends Model> {
      * @return the model
      */
     T findById(Integer id);
+
 
     /**
      * Saves or updates the model

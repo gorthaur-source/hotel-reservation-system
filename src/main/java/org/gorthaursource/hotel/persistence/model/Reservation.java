@@ -1,5 +1,9 @@
 package org.gorthaursource.hotel.persistence.model;
 
+import jdk.jfr.Timestamp;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -15,8 +19,10 @@ public class Reservation extends AbstractModel {
     @JoinColumn(name = "GUEST_ID")
     private Guest guest;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "RES_DATE")
-    private Date restDate;
+    private Date resDate;
+
 
     public Guest getGuest() {
         return guest;
@@ -34,11 +40,12 @@ public class Reservation extends AbstractModel {
         this.room = room;
     }
 
-    public Date getRestDate() {
-        return restDate;
+
+    public Date getResDate() {
+        return resDate;
     }
 
-    public void setRestDate(Date restDate) {
-        this.restDate = restDate;
+    public void setResDate(Date resDate) {
+        this.resDate = resDate;
     }
 }

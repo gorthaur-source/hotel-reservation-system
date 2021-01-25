@@ -2,11 +2,13 @@ package org.gorthaursource.hotel.persistence.dao.jpa;
 
 import org.gorthaursource.hotel.persistence.dao.Dao;
 import org.gorthaursource.hotel.persistence.model.Model;
+import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.sql.PreparedStatement;
 import java.util.Date;
 import java.util.List;
 
@@ -27,10 +29,7 @@ public abstract class GenericJpaDao<T extends Model> implements Dao<T> {
         this.em = em;
     }
 
-    @Override
-    public List<T> findByDate(Date date) {
 
-    }
     @Override
     public List<T> findAll() {
         CriteriaQuery<T> criteriaQuery = em.getCriteriaBuilder().createQuery(modelType);
