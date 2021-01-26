@@ -2,7 +2,9 @@ package org.gorthaursource.hotel.converters;
 
 import org.gorthaursource.hotel.command.GuestDto;
 import org.gorthaursource.hotel.persistence.model.Guest;
+import org.springframework.stereotype.Component;
 
+@Component
 public class GuestToGuestDto extends AbstractConverter<Guest, GuestDto> {
 
 

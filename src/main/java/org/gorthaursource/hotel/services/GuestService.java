@@ -23,7 +23,7 @@ public class GuestService {
     }
 
 
-    public List<Guest> guestList() {
+    public List<Guest> getGuestList() {
         return guestDao.findAll();
     }
 }
