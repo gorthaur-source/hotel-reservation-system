@@ -23,7 +23,7 @@ public abstract class AbstractConverter<S, T> implements Converter<S, T> {
         List<T> conversions = new ArrayList<>(listToConvert.size());
 
         for (S toConvert : listToConvert) {
-            conversions.add(convert(toConvert));
+                conversions.add(convert(toConvert));
         }
 
         return conversions;
