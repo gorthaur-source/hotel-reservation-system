@@ -11,7 +11,6 @@ import java.util.List;
 
 public interface Dao<T extends Model> {
 
-
     List<T> findAll();
 
     /**
@@ -21,7 +20,6 @@ public interface Dao<T extends Model> {
      * @return the model
      */
     T findById(Integer id);
-
 
     /**
      * Saves or updates the model
@@ -37,5 +35,4 @@ public interface Dao<T extends Model> {
      * @param id the id of the model to be deleted
      */
     void delete(Integer id);
-
 }

@@ -3,8 +3,8 @@ package org.gorthaursource.hotel.services;
 import java.util.Date;
 import java.util.List;
 
-import org.gorthaursource.hotel.persistence.dao.ReservationRepository;
-
+import org.gorthaursource.hotel.persistence.dao.ReservationDao;
+import org.gorthaursource.hotel.persistence.dao.jpa.JpaReservationDao;
 import org.gorthaursource.hotel.persistence.model.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,13 +12,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class ReservationService {
 
-    private final ReservationRepository reservationRepository;
+    private ReservationDao reservationRepository;
 
-    @Autowired
-    public ReservationService(ReservationRepository reservationRepository) {
-
-        this.reservationRepository = reservationRepository;
-    }
 
     public List<Reservation> getRoomReservationsForDate(Date date) {
 
@@ -31,5 +26,14 @@ public class ReservationService {
             return o1.getRoom().getRoomName().compareTo(o2.getRoom().getRoomName());
         });
         return reservations;
+    }
+
+    @Autowired
+    public void setReservationRepository(ReservationDao reservationRepository) {
+        this.reservationRepository = reservationRepository;
+    }
+
+    public ReservationDao getReservationRepository() {
+        return reservationRepository;
     }
 }
